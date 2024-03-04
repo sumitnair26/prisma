@@ -20,7 +20,7 @@ async function insertUser(username: string, password: string, firstname: string,
   console.log(res);
 }
 
-//insertUser('test.nair26@gmail.com','testpassword','test','nair')
+//insertUser('sumit.nair26@gmail.com','sumitpassword','sumit','nair')
 interface UpdateParams {
     firstname: string,
     lastname: string
@@ -48,7 +48,7 @@ async function getUser(useremail:string) {
             email: useremail
         }
     })
-    console.log(user);
+    console.log('get users', user);
 }
 
 getUser('sumit.nair26@gmail.com');
@@ -68,3 +68,32 @@ async function  deleUser(userEmail:string) {
 }
 
 //deleUser('test.nair26@gmail.com');
+
+async function createTodo(title:string, description:string, userId:number) {
+    const res = await prisma.todo.create({
+        data: {
+            title:title,
+            description:description,
+            userId:userId
+        }
+    })
+    console.log("Added Succesfully");
+}
+//createTodo("Morning ToDo", "Will go for walk and ontime breakfast",1);
+
+async function getTodos(userId:number) {
+   const res = await prisma.todo.findMany({
+        where: {
+            id:userId
+        },
+    select: {
+        id:true,
+        title:true,
+        description:true,
+        user: true
+    }
+    })
+    console.log('get todo', res);
+}
+
+getTodos(1);

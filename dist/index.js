@@ -52,10 +52,10 @@ function getUser(useremail) {
                 email: useremail
             }
         });
-        console.log(user);
+        console.log('get users', user);
     });
 }
-getUser('test.nair26@gmail.com');
+getUser('sumit.nair26@gmail.com');
 function deleUser(userEmail) {
     return __awaiter(this, void 0, void 0, function* () {
         console.log(userEmail);
@@ -73,3 +73,33 @@ function deleUser(userEmail) {
     });
 }
 //deleUser('test.nair26@gmail.com');
+function createTodo(title, description, userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todo.create({
+            data: {
+                title: title,
+                description: description,
+                userId: userId
+            }
+        });
+        console.log("Added Succesfully");
+    });
+}
+//createTodo("Morning ToDo", "Will go for walk and ontime breakfast",1);
+function getTodos(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todo.findMany({
+            where: {
+                id: userId
+            },
+            select: {
+                id: true,
+                title: true,
+                description: true,
+                user: true
+            }
+        });
+        console.log('get todo', res);
+    });
+}
+getTodos(1);
