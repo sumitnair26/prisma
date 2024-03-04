@@ -57,6 +57,11 @@ learning-prisma/
    ```bash
    npx prisma migrate dev --name initial
    ```
+5. Running in Terminal
+    ```bash
+        tsc -b
+        node dist/index.js
+   ```
 
 ## Usage
 - Update the Prisma schema in `prisma/schema.prisma` as you progress with your learning.
