@@ -21,9 +21,10 @@ This project focuses on learning Prisma, a modern database toolkit that simplifi
 learning-prisma/
 │
 ├── src/
-│   ├── index.js
-│   ├── models/
-│   │   ├── user.js
+│   ├── dist
+|   |   ├── index.js
+│   ├── src/
+│   │   ├── index.ts
 │   │   └── ...
 │   └── migrations/
 │       ├── 20240304120000_initial.js
@@ -41,7 +42,7 @@ learning-prisma/
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sumitnair26/prisma.git
    cd learning-prisma
    ```
 
